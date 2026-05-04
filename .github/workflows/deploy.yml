@@ -25,6 +25,10 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Test - check UNINASSAU in index.html
+        run: grep -q "UNINASSAU" dist/index.html && echo "OK" || (echo "UNINASSAU not found in index.html" && exit 1)
+
+
     #   - name: Deploy to Cloudflare Pages
     #     uses: cloudflare/wrangler-action@v3
     #     with:
